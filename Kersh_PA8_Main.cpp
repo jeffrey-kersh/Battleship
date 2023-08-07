@@ -50,7 +50,7 @@ int main() {
 			//#6 display board
 			cout << "******** Your Board ********" << endl;
 			printArray(p1SolutionGrid, NUM_ROWS, NUM_COLS);
-			cout << "******** Player 2's Board ********" << endl;
+			cout << "******** Computer's Board ********" << endl;
 			printArray(p2DisplayGrid, NUM_ROWS, NUM_COLS); 
 		
 			//#7 enter a target
@@ -82,7 +82,7 @@ int main() {
 			//#6 display board
 			cout << "******** Your Board ********" << endl;
 			printArray(p1SolutionGrid, NUM_ROWS, NUM_COLS);
-			cout << "******** Player 2's Board ********" << endl;
+			cout << "******** Computer's Board ********" << endl;
 			printArray(p2DisplayGrid, NUM_ROWS, NUM_COLS); 
 		
 			//#7 enter a target
@@ -94,7 +94,7 @@ int main() {
 			//Clear Screen
 			clearScreen();
 			
-			cout << "Player 2 selects " << row << ", " << column << "!" << endl;
+			cout << "Computer selects " << row << ", " << column << "!" << endl;
 	
 			//#8 check for hit or miss
 			symbol = checkShot(p1SolutionGrid, p1SolutionGrid, row, column, outputFile, 2);
@@ -113,9 +113,9 @@ int main() {
 	} while (isWinner(p1sunkShipsCount, p2sunkShipsCount) == false);
 	
 	cout << "********* Final Board Positions *********" << endl;
-	cout << "Player One:";
+	cout << "You:";
 	printArray(p1SolutionGrid, NUM_ROWS, NUM_COLS);
-	cout << "Player Two:";
+	cout << "Computer:";
 	printArray(p2SolutionGrid, NUM_ROWS, NUM_COLS);
 	
 	//determine variable 'won' to pass to the statistics file

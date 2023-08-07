@@ -25,14 +25,12 @@ void welcomeScreen() {
 	cout << endl;
 	cout << "Rules of the Game: "<< endl;
 	cout << endl;
-	cout << "1. This is a two player game." << endl;
-	cout << "2. Player1 is you and Player2 is the computer." << endl;
-	cout << "3. Place your ships manually, or allow them to be placed randomly. The ships can be placed in any horizontal or vertical position, but not diagonally. Ships cannot overlap with each other or move once the game has begun." << endl;
-	cout << "4. A Player will be randomly chosen to go first." << endl;
-	cout << "5. Players may call one shot per turn, and the turns alternate back and forth between the two players." << endl;
-	cout << "6. On your turn you will enter the cell on the opponent's board that you wish to shoot at. You will be notified if it was a hit or a miss. In the event that it is a hit, you get another opportunity to shoot." << endl;
-	cout << "7. Once a player's ship has been hit in each cell that it occupies, the other player will be notified which ship they have sunk." << endl;
-	cout << "8. The first player to sink all 5 of their opponent's ships is the winner." << endl;
+	cout << "1. Place your ships manually, or allow them to be placed randomly. The ships can be placed in any horizontal or vertical position, but not diagonally. Ships cannot overlap with each other or move once the game has begun." << endl;
+	cout << "2. A Player will be randomly chosen to go first." << endl;
+	cout << "3. Players may call one shot per turn, and the turns alternate back and forth between the two players." << endl;
+	cout << "4. On your turn you will enter the cell on the opponent's board that you wish to shoot at. You will be notified if it was a hit or a miss. In the event that it is a hit, you get another opportunity to shoot." << endl;
+	cout << "5. Once a player's ship has been hit in each cell that it occupies, the other player will be notified which ship they have sunk." << endl;
+	cout << "6. The first player to sink all 5 of their opponent's ships is the winner." << endl;
 	cout << endl;
 	
 }
@@ -72,11 +70,11 @@ bool selectWhoStarts() {
 	first = rand() % 2;
 	
 	if (first == 0) {
-		cout << "Player1 will go first." << endl;
+		cout << "You get to go first." << endl;
 		player = true;
 	}
 	else if (first == 1) {
-		cout << "Player2 will go first." << endl;
+		cout << "The computer will go first." << endl;
 		player = false;
 	}
 	
@@ -268,7 +266,7 @@ void randomlyPlaceSingleShip(char playerGrid[NUM_ROWS][NUM_COLS], int name, int 
 		for (i = 0; i < shipSizes[size]; ++i) {
 			if (overlap == true) {
 				break;
-			}
+			}v  
 			else {
 				playerGrid[row--][col] = shipSymbols[symbol];
 			}
@@ -380,7 +378,7 @@ int enterTarget() {
 	int location;
 	bool valid = true;
 
-	cout << "Please enter a target in the form of two integers corresponding to [row][column]: ";
+	cout << "Enter your target as two integers corresponding to [row][column]: ";
 	cin >> location;
 	
 	return location;
@@ -466,7 +464,7 @@ bool isWinner(int p1sunkShipsCount, int p2sunkShipsCount) {
 	}
 	else {
 		winner = true;
-		cout << "Player 2 won..." << endl;
+		cout << "The computer won..." << endl;
 	}
 	
 	return winner;
@@ -503,7 +501,9 @@ void clearScreen() {
 	cout << "Press enter to continue...\n";
 	//cin.ignore();
 	cin.get(); 
-	system("clear");
+	// to do - detect if linux or windows and clear accordingly9
+	// system("clear"); - works on linux
+	system("CLS");
 }
 
 /**************************************************************************
